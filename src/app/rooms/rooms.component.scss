@@ -1,11 +1,30 @@
 .container {
   padding: 24px 16px;
 
+  .roomsList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+  a {
+    text-decoration: none;
+    color: unset;
+    width: 100%;
+
+    &:hover,
+    &:active {
+      width: 98%;
+    }
+  }
+
   .room {
     background-color: #fff;
     border-radius: 8px;
     height: 260px;
-    margin: 24px 8px;
+    margin: 12px 8px;
 
     .typography {
       padding: 12px;
