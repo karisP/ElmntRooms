@@ -1,0 +1,36 @@
+.container {
+  padding: 24px 16px;
+
+  .room {
+    background-color: #fff;
+    border-radius: 8px;
+    height: 260px;
+    margin: 24px 8px;
+
+    .typography {
+      padding: 12px;
+
+      h3 {
+        font-size: 16px;
+        line-height: 16px;
+        margin-bottom: 4px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      div {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .star {
+        background-image: url("../../assets/star-lg-yellow.svg");
+        width: 12px;
+        height: 13px;
+        margin-left: 2px;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Welcome, {{ user }}</h2>
+  <div *ngFor="let room of rooms">
+    <div class="room">
+      <div
+        [style.backgroundImage]="'url(' + room.photo + ')'"
+        [style.width]="'100%'"
+        [style.height.px]="200"
+        [style.backgroundPosition]="'center'"
+        [style.backgroundSize]="'cover'"
+        [style.borderRadius]="'8px 8px 0 0'"
+      ></div>
+      <div class="typography">
+        <div>
+          <h3>{{ room.name }}</h3>
+          <div>
+            <p>{{ room.rating }}</p>
+            <div class="star"></div>
+          </div>
+        </div>
+        <p>{{ room.price | currency : "USD" : "symbol" : "1.0-0" }}/night</p>
+      </div>
+    </div>
+  </div>
+</div>
