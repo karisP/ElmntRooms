@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Welcome, {{ user }}</h2>
+  <app-date-picker></app-date-picker>
   <div class="roomsList">
     <a [routerLink]="['/room', room.roomId]" *ngFor="let room of rooms">
       <div class="room">
