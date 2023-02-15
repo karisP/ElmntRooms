@@ -56,4 +56,24 @@
       }
     }
   }
+
+  button {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    margin-bottom: 0;
+    background-color: #b1846f;
+    color: white;
+    font-family: "Questrial", sans-serif;
+    font-size: 20px;
+
+    &:hover {
+      font-size: 21px;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+  }
 }

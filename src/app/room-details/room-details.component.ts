@@ -9,6 +9,7 @@ import { rooms, RoomsList } from '../rooms';
 })
 export class RoomDetailsComponent {
   room: RoomsList | undefined;
+  selectedRoom: RoomsList | undefined;
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -16,5 +17,10 @@ export class RoomDetailsComponent {
     const roomIdFromRoute = Number(routeParams.get('id'));
 
     this.room = rooms.find((room) => room.roomId === roomIdFromRoute);
+  }
+
+  selectRoom(room: RoomsList | undefined) {
+    this.selectedRoom = room;
+    console.log('you have selected the', room?.name);
   }
 }
