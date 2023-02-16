@@ -12,6 +12,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BookingDetailsComponent } from './booking-details/booking-details.compo
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
+    MatCheckboxModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],

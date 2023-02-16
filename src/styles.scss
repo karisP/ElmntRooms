@@ -96,4 +96,11 @@ button {
   &:active {
     opacity: 0.8;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: darkgray;
+    background-color: lightgray;
+  }
 }

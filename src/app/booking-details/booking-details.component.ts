@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { ActivatedRoute } from '@angular/router';
 import { rooms, RoomsList } from '../rooms';
 
@@ -14,6 +15,8 @@ export class BookingDetailsComponent {
   taxes: number | undefined;
   fees: number | undefined;
   totalPrice: number | undefined;
+  cancellationFee: number | undefined;
+  agreedToCancellationPolicy: boolean | undefined;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -21,12 +24,14 @@ export class BookingDetailsComponent {
     const routeParams = this.route.snapshot.paramMap;
     const roomIdFromRoute = Number(routeParams.get('id'));
     this.room = rooms.find((room) => room.roomId === roomIdFromRoute);
-    // replace later with actual dates
+    this.agreedToCancellationPolicy = false;
+    // TODO: replace later with actual dates
     this.numberOfNights = 4;
     this.roomCostCalculator();
     this.taxesCalculator();
     this.feesCalculator();
     this.totalPriceCalculator();
+    this.cancellationFeeCalculator();
   }
 
   roomCostCalculator() {
@@ -51,5 +56,15 @@ export class BookingDetailsComponent {
     if (this.roomCost && this.taxes && this.fees) {
       this.totalPrice = this.roomCost + this.taxes + this.fees;
     }
+  }
+
+  cancellationFeeCalculator() {
+    if (this.roomCost) {
+      this.cancellationFee = this.roomCost * 0.1;
+    }
+  }
+
+  agreeToPolicy(event: MatCheckboxChange) {
+    this.agreedToCancellationPolicy = event.checked;
   }
 }
