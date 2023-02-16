@@ -21,6 +21,5 @@ export class RoomDetailsComponent {
 
   selectRoom(room: RoomsList | undefined) {
     this.selectedRoom = room;
-    console.log('you have selected the', room?.name);
   }
 }
