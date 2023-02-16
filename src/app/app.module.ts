@@ -11,6 +11,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatePickerComponent } from './date-picker/date-picker.component';
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
     RoomsComponent,
     RoomDetailsComponent,
     DatePickerComponent,
+    BookingDetailsComponent,
   ],
   imports: [
     BrowserModule,

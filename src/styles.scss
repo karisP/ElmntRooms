@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,13 +19,15 @@ $elmnt-rooms-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$elmnt-rooms-theme: mat.define-light-theme((
-  color: (
-    primary: $elmnt-rooms-primary,
-    accent: $elmnt-rooms-accent,
-    warn: $elmnt-rooms-warn,
+$elmnt-rooms-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $elmnt-rooms-primary,
+      accent: $elmnt-rooms-accent,
+      warn: $elmnt-rooms-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -48,5 +49,52 @@ main {
   padding: 24px 16px;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 8px;
+  margin: 16px;
+  padding: 32px 16px;
+  min-height: 400px;
+
+  > div {
+    flex-direction: column;
+    > div,
+    > p,
+    > h2 {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+button {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  margin-bottom: 0;
+  margin-top: 16px;
+  background-color: #b1846f;
+  color: white;
+  font-family: "Questrial", sans-serif;
+  font-size: 20px;
+
+  &:hover {
+    font-size: 21px;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}

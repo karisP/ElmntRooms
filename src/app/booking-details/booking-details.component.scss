@@ -1,0 +1,10 @@
+.details {
+  > div > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  > div > p {
+    font-size: 12px;
+  }
+}

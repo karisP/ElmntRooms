@@ -1,0 +1,37 @@
+<div
+  [style.backgroundImage]="'url(' + room?.photo + ')'"
+  [style.width]="'100%'"
+  [style.height.px]="292"
+  [style.backgroundPosition]="'center'"
+  [style.backgroundSize]="'cover'"
+></div>
+<div class="details">
+  <div>
+    <h2>Booking Details</h2>
+    <div>
+      <p>{{ room?.name }}</p>
+      <p>date range</p>
+    </div>
+    <div>
+      <p>{{ room?.price | currency : "USD" : "symbol" : "1.0-0" }}/night x #</p>
+      <p>total price</p>
+    </div>
+    <div>
+      <p>Taxes 6%</p>
+      <p>$</p>
+    </div>
+    <div>
+      <p>Resort Fees $10/night</p>
+      <p>$</p>
+    </div>
+    <div>
+      <p>Total</p>
+      <p>$</p>
+    </div>
+    <p>
+      You may cancel your booking without charges at the latest 7 days prior;
+      otherwise, there will be a 10% fee.
+    </p>
+  </div>
+  <button>Confirm Reservation</button>
+</div>
