@@ -7,12 +7,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -27,13 +24,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
+    MaterialModule,
   ],
-  providers: [MatDatepickerModule],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
