@@ -13,20 +13,23 @@
       <p>date range</p>
     </div>
     <div>
-      <p>{{ room?.price | currency : "USD" : "symbol" : "1.0-0" }}/night x #</p>
-      <p>total price</p>
+      <p>
+        {{ room?.price | currency : "USD" : "symbol" : "1.0-0" }}/night x
+        {{ numberOfNights }}
+      </p>
+      <p>{{ roomCost | currency : "USD" : "symbol" : "1.0-0" }}</p>
     </div>
     <div>
       <p>Taxes 6%</p>
-      <p>$</p>
+      <p>{{ taxes | currency : "USD" : "symbol" : "1.0-0" }}</p>
     </div>
     <div>
       <p>Resort Fees $10/night</p>
-      <p>$</p>
+      <p>{{ fees | currency : "USD" : "symbol" : "1.0-0" }}</p>
     </div>
     <div>
       <p>Total</p>
-      <p>$</p>
+      <p>{{ totalPrice | currency : "USD" : "symbol" : "1.0-0" }}</p>
     </div>
     <p>
       You may cancel your booking without charges at the latest 7 days prior;
