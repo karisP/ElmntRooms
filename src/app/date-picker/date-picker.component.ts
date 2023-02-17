@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { BookingService } from '../booking.service';
 
 @Component({
   selector: 'app-date-picker',
@@ -13,4 +15,13 @@ export class DatePickerComponent {
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
   });
+
+  constructor(
+    private route: ActivatedRoute,
+    private bookingService: BookingService
+  ) {}
+
+  setDates() {
+    this.bookingService.setDates(this.range);
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { ActivatedRoute } from '@angular/router';
+import { BookingService } from '../booking.service';
 import { RoomService } from '../room.service';
 import { Room } from '../rooms';
 
@@ -22,7 +23,8 @@ export class BookingDetailsComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private roomService: RoomService
+    private roomService: RoomService,
+    private bookingService: BookingService
   ) {}
 
   ngOnInit() {
@@ -45,6 +47,7 @@ export class BookingDetailsComponent {
   getRoomById(): void {
     const routeParams = this.route.snapshot.paramMap;
     const roomIdFromRoute = Number(routeParams.get('id'));
+    this.bookingService.setRoomId(roomIdFromRoute);
     this.room = this.rooms.find((room) => room.roomId === roomIdFromRoute);
   }
 
