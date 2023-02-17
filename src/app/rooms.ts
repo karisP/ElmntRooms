@@ -1,4 +1,4 @@
-export interface RoomsList {
+export interface Room {
   roomId: number;
   name: string;
   description: string;
@@ -18,7 +18,7 @@ interface Review {
   message: string;
 }
 
-export const rooms: RoomsList[] = [
+export const MOCK_ROOMS: Room[] = [
   {
     roomId: 1,
     name: 'Golden Hour',

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { rooms, RoomsList } from '../rooms';
+import { Room } from '../rooms';
+import { RoomService } from '../room.service';
 
 @Component({
   selector: 'app-room-details',
@@ -8,18 +9,31 @@ import { rooms, RoomsList } from '../rooms';
   styleUrls: ['./room-details.component.scss'],
 })
 export class RoomDetailsComponent {
-  room: RoomsList | undefined;
-  selectedRoom: RoomsList | undefined;
-  constructor(private route: ActivatedRoute) {}
+  room: Room | undefined;
+  rooms: Room[] = [];
+  selectedRoom: Room | undefined;
 
-  ngOnInit() {
-    const routeParams = this.route.snapshot.paramMap;
-    const roomIdFromRoute = Number(routeParams.get('id'));
+  constructor(
+    private route: ActivatedRoute,
+    private roomService: RoomService
+  ) {}
 
-    this.room = rooms.find((room) => room.roomId === roomIdFromRoute);
+  ngOnInit(): void {
+    this.getRooms();
+    this.getRoomById();
   }
 
-  selectRoom(room: RoomsList | undefined) {
+  getRooms(): void {
+    this.roomService.getRooms().subscribe((rooms) => (this.rooms = rooms));
+  }
+
+  getRoomById(): void {
+    const routeParams = this.route.snapshot.paramMap;
+    const roomIdFromRoute = Number(routeParams.get('id'));
+    this.room = this.rooms.find((room) => room.roomId === roomIdFromRoute);
+  }
+
+  selectRoom(room: Room | undefined): void {
     this.selectedRoom = room;
   }
 }

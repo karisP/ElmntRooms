@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { rooms, RoomsList } from '../rooms';
+import { Room } from '../rooms';
+import { RoomService } from '../room.service';
 
 @Component({
   selector: 'app-rooms',
@@ -8,5 +9,15 @@ import { rooms, RoomsList } from '../rooms';
 })
 export class RoomsComponent {
   user = 'Karissa';
-  rooms: RoomsList[] = rooms;
+  rooms: Room[] = [];
+
+  constructor(private roomService: RoomService) {}
+
+  ngOnInit(): void {
+    this.getRooms();
+  }
+
+  getRooms(): void {
+    this.roomService.getRooms().subscribe((rooms) => (this.rooms = rooms));
+  }
 }

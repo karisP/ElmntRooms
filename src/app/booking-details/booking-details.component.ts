@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { ActivatedRoute } from '@angular/router';
-import { rooms, RoomsList } from '../rooms';
+import { RoomService } from '../room.service';
+import { Room } from '../rooms';
 
 @Component({
   selector: 'app-booking-details',
@@ -9,7 +10,8 @@ import { rooms, RoomsList } from '../rooms';
   styleUrls: ['./booking-details.component.scss'],
 })
 export class BookingDetailsComponent {
-  room: RoomsList | undefined;
+  room: Room | undefined;
+  rooms: Room[] = [];
   roomCost: number | undefined;
   numberOfNights: number | undefined;
   taxes: number | undefined;
@@ -18,12 +20,14 @@ export class BookingDetailsComponent {
   cancellationFee: number | undefined;
   agreedToCancellationPolicy: boolean | undefined;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private roomService: RoomService
+  ) {}
 
   ngOnInit() {
-    const routeParams = this.route.snapshot.paramMap;
-    const roomIdFromRoute = Number(routeParams.get('id'));
-    this.room = rooms.find((room) => room.roomId === roomIdFromRoute);
+    this.getRooms();
+    this.getRoomById();
     this.agreedToCancellationPolicy = false;
     // TODO: replace later with actual dates
     this.numberOfNights = 4;
@@ -32,6 +36,16 @@ export class BookingDetailsComponent {
     this.feesCalculator();
     this.totalPriceCalculator();
     this.cancellationFeeCalculator();
+  }
+
+  getRooms(): void {
+    this.roomService.getRooms().subscribe((rooms) => (this.rooms = rooms));
+  }
+
+  getRoomById(): void {
+    const routeParams = this.route.snapshot.paramMap;
+    const roomIdFromRoute = Number(routeParams.get('id'));
+    this.room = this.rooms.find((room) => room.roomId === roomIdFromRoute);
   }
 
   roomCostCalculator() {
