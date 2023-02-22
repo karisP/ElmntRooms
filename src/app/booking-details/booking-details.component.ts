@@ -21,6 +21,7 @@ export class BookingDetailsComponent {
   fees: number | undefined;
   totalPrice: number | undefined;
   cancellationFee: number | undefined;
+  lastCancellationDate: Date | undefined;
   agreedToCancellationPolicy: boolean | undefined;
 
   constructor(
@@ -41,6 +42,7 @@ export class BookingDetailsComponent {
     this.feesCalculator();
     this.totalPriceCalculator();
     this.cancellationFeeCalculator();
+    this.calculateLastCancellationDate();
   }
 
   setNumberOfNights(start: Date | null, end: Date | null) {
@@ -93,7 +95,19 @@ export class BookingDetailsComponent {
     }
   }
 
+  calculateLastCancellationDate() {
+    if (this.checkInDate) {
+      this.lastCancellationDate = new Date(
+        this.checkInDate.valueOf() - 7 * 24 * 60 * 60 * 1000
+      );
+    }
+  }
+
   agreeToPolicy(event: MatCheckboxChange) {
     this.agreedToCancellationPolicy = event.checked;
+  }
+
+  confirmBooking() {
+    this.bookingService.setConfirmationCode();
   }
 }

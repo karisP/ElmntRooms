@@ -11,6 +11,7 @@ export class BookingService {
     roomId: undefined,
     checkInDate: null,
     checkOutDate: null,
+    confirmationCode: undefined,
   };
 
   constructor() {}
@@ -32,9 +33,12 @@ export class BookingService {
     this.booking.roomId = id;
   }
 
+  getConfirmationCode() {
+    return this.booking.confirmationCode;
+  }
+
   setConfirmationCode(): void {
-    this.genRandomString(10);
-    //TODO set to booking
+    this.booking.confirmationCode = this.genRandomString(10);
   }
 
   genRandomString(length: number) {

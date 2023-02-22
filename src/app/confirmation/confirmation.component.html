@@ -1,0 +1,30 @@
+<div
+  [style.backgroundImage]="'url(' + room?.photo + ')'"
+  [style.width]="'100%'"
+  [style.height.px]="292"
+  [style.backgroundPosition]="'center'"
+  [style.backgroundSize]="'cover'"
+></div>
+<div class="details">
+  <div>
+    <h2>Confirmation</h2>
+    <div>
+      <p>{{ room?.name }}</p>
+      <p>
+        {{ checkInDate | date : "EEE, MMM dd" }} -
+        {{ checkOutDate | date : "EEE, MMM dd" }}
+      </p>
+    </div>
+    <div>
+      <p>Confirmation Code</p>
+      <p>{{ confirmationCode }}</p>
+    </div>
+    <p>
+      Thank you for choosing ELMNT! We looking forward to having you as our
+      guest. Please save this page for your records.
+    </p>
+  </div>
+  <a [routerLink]="['/']">
+    <button>Book Another Room</button>
+  </a>
+</div>

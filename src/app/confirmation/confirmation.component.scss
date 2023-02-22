@@ -1,0 +1,19 @@
+.details {
+  > div {
+    h2 {
+      margin-bottom: 24px;
+    }
+    > div {
+      display: flex;
+      justify-content: space-between;
+    }
+    > p {
+      text-align: center;
+      margin-top: 32px;
+    }
+  }
+
+  button {
+    margin-top: 16px;
+  }
+}

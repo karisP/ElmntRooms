@@ -11,8 +11,8 @@
     <div>
       <p>{{ room?.name }}</p>
       <p>
-        {{ checkInDate | date : "MM/dd/yyyy" }} -
-        {{ checkOutDate | date : "MM/dd/yyyy" }}
+        {{ checkInDate | date : "EEE, MMM dd" }} -
+        {{ checkOutDate | date : "EEE, MMM dd" }}
       </p>
     </div>
     <div>
@@ -39,14 +39,17 @@
       otherwise, there will be a 10% fee.
     </p>
   </div>
-  <!-- TODO: Update to say the specific check in date -->
   <mat-checkbox
     [aria-label]="'agreeToCancellationPolicy'"
     (change)="agreeToPolicy($event)"
   >
-    I understand that if I cancel my reservation within 7 days of the check in
-    date that I will be charged
+    I understand that if I cancel my reservation after
+    {{ lastCancellationDate | date : "MM/dd/yyyy" }} that I will be charged
     {{ cancellationFee | currency : "USD" : "symbol" : "1.0-0" }}.
   </mat-checkbox>
-  <button [disabled]="!agreedToCancellationPolicy">Confirm Reservation</button>
+  <a [routerLink]="['/room', room?.roomId, 'confirmation']">
+    <button [disabled]="!agreedToCancellationPolicy" (click)="confirmBooking()">
+      Confirm Reservation
+    </button>
+  </a>
 </div>

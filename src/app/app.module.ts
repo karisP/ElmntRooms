@@ -11,6 +11,7 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RoomDetailsComponent,
     DatePickerComponent,
     BookingDetailsComponent,
+    ConfirmationComponent,
   ],
   imports: [
     BrowserModule,
