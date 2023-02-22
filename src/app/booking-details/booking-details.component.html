@@ -10,7 +10,10 @@
     <h2>Booking Details</h2>
     <div>
       <p>{{ room?.name }}</p>
-      <p>date range</p>
+      <p>
+        {{ checkInDate | date : "MM/dd/yyyy" }} -
+        {{ checkOutDate | date : "MM/dd/yyyy" }}
+      </p>
     </div>
     <div>
       <p>

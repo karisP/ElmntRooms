@@ -11,6 +11,8 @@ import { Room } from '../rooms';
   styleUrls: ['./booking-details.component.scss'],
 })
 export class BookingDetailsComponent {
+  checkInDate: Date | null = null;
+  checkOutDate: Date | null = null;
   room: Room | undefined;
   rooms: Room[] = [];
   roomCost: number | undefined;
@@ -28,16 +30,26 @@ export class BookingDetailsComponent {
   ) {}
 
   ngOnInit() {
+    this.checkInDate = this.bookingService.getCheckInDate();
+    this.checkOutDate = this.bookingService.getCheckOutDate();
     this.getRooms();
     this.getRoomById();
     this.agreedToCancellationPolicy = false;
-    // TODO: replace later with actual dates
-    this.numberOfNights = 4;
+    this.setNumberOfNights(this.checkInDate, this.checkOutDate);
     this.roomCostCalculator();
     this.taxesCalculator();
     this.feesCalculator();
     this.totalPriceCalculator();
     this.cancellationFeeCalculator();
+  }
+
+  setNumberOfNights(start: Date | null, end: Date | null) {
+    if (start && end) {
+      const str1 = start.toDateString();
+      const str2 = end.toDateString();
+      var diff = Math.floor((Date.parse(str2) - Date.parse(str1)) / 86400000);
+      this.numberOfNights = diff;
+    }
   }
 
   getRooms(): void {

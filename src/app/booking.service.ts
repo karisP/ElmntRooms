@@ -1,39 +1,40 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 import { Booking } from './booking';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookingService {
-  booking: Booking | undefined;
+  randomNum = Math.floor(Math.random() * 100);
+  booking: Booking = {
+    id: this.randomNum,
+    roomId: undefined,
+    checkInDate: null,
+    checkOutDate: null,
+  };
 
   constructor() {}
 
-  setId(): void {
-    const randomNum = Math.floor(Math.random() * 100);
-    // this.booking = {
-    //   ...this.booking,
-    //   id: randomNum,
-    // }
+  getCheckInDate() {
+    return this.booking.checkInDate;
   }
 
-  setDates(
-    range: FormGroup<{
-      start: FormControl<Date | null>;
-      end: FormControl<Date | null>;
-    }>
-  ): void {
-    console.log('setDates', range);
+  getCheckOutDate() {
+    return this.booking.checkOutDate;
+  }
+
+  setDates(dateStart: Date | null, dateEnd: Date | null): void {
+    this.booking.checkInDate = dateStart;
+    this.booking.checkOutDate = dateEnd;
   }
 
   setRoomId(id: number): void {
-    console.log(id);
+    this.booking.roomId = id;
   }
 
   setConfirmationCode(): void {
     this.genRandomString(10);
-    //set to booking
+    //TODO set to booking
   }
 
   genRandomString(length: number) {

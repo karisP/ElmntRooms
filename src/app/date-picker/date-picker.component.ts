@@ -16,12 +16,24 @@ export class DatePickerComponent {
     end: new FormControl<Date | null>(null),
   });
 
-  constructor(
-    private route: ActivatedRoute,
-    private bookingService: BookingService
-  ) {}
+  dateStart: Date | null | undefined = null;
+  dateEnd: Date | null | undefined = null;
 
-  setDates() {
-    this.bookingService.setDates(this.range);
+  constructor(private bookingService: BookingService) {}
+
+  onDateChanged(event: Partial<{ start: Date | null; end: Date | null }>) {
+    this.dateStart = event.start;
+    this.dateEnd = event.end;
+    if (this.dateStart && this.dateEnd) {
+      this.bookingService.setDates(this.dateStart, this.dateEnd);
+    }
+  }
+
+  ngAfterViewInit() {
+    this.range.valueChanges.subscribe((event) => {
+      if (event.start && event.end) {
+        this.onDateChanged(event);
+      }
+    });
   }
 }
