@@ -51,7 +51,13 @@
     {{ lastCancellationDate | date : "MM/dd/yyyy" }} that I will be charged
     {{ cancellationFee | currency : "USD" : "symbol" : "1.0-0" }}.
   </mat-checkbox>
-  <a [routerLink]="['/room', room?.roomId, 'confirmation']">
+  <a
+    [routerLink]="
+      agreedToCancellationPolicy
+        ? ['/room', room?.roomId, 'confirmation']
+        : null
+    "
+  >
     <button [disabled]="!agreedToCancellationPolicy" (click)="confirmBooking()">
       Confirm Reservation
     </button>

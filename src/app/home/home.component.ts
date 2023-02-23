@@ -8,8 +8,25 @@ import { BookingService } from '../booking.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  linkEnabled: boolean = false;
+  disableSelect = new FormControl(false);
+
   constructor(private bookingService: BookingService) {}
+
   changeGuests(guests: string) {
     this.bookingService.setGuests(parseInt(guests));
+    this.validate();
+  }
+
+  validate(): void {
+    if (
+      this.bookingService.getCheckInDate() &&
+      this.bookingService.getCheckOutDate()
+    ) {
+      this.disableSelect.setValue(false);
+      if (this.bookingService.getGuests()) {
+        this.linkEnabled = true;
+      }
+    }
   }
 }
