@@ -3,5 +3,6 @@ export interface Booking {
   roomId: number | undefined;
   checkInDate: Date | null;
   checkOutDate: Date | null;
+  guests: number | undefined;
   confirmationCode: string | undefined;
 }

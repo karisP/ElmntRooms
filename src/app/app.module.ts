@@ -12,6 +12,7 @@ import { BookingDetailsComponent } from './booking-details/booking-details.compo
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     DatePickerComponent,
     BookingDetailsComponent,
     ConfirmationComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,7 @@ export class BookingDetailsComponent {
   rooms: Room[] = [];
   roomCost: number | undefined;
   numberOfNights: number | undefined;
+  numberOfGuests: number | undefined;
   taxes: number | undefined;
   fees: number | undefined;
   totalPrice: number | undefined;
@@ -33,6 +34,7 @@ export class BookingDetailsComponent {
   ngOnInit() {
     this.checkInDate = this.bookingService.getCheckInDate();
     this.checkOutDate = this.bookingService.getCheckOutDate();
+    this.numberOfGuests = this.bookingService.getGuests();
     this.getRooms();
     this.getRoomById();
     this.agreedToCancellationPolicy = false;

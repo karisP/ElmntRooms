@@ -1,0 +1,16 @@
+<div class="container">
+  <div>
+    <app-date-picker></app-date-picker>
+    <mat-form-field appearance="fill">
+      <mat-label>Guests</mat-label>
+      <mat-select (selectionChange)="changeGuests($event.value)">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <a [routerLink]="['/rooms']">
+      <button>Search For Rooms</button>
+    </a>
+  </div>
+  <p>rest and refreshment is only a few steps away</p>
+</div>

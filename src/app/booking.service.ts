@@ -11,6 +11,7 @@ export class BookingService {
     roomId: undefined,
     checkInDate: null,
     checkOutDate: null,
+    guests: undefined,
     confirmationCode: undefined,
   };
 
@@ -31,6 +32,14 @@ export class BookingService {
 
   setRoomId(id: number): void {
     this.booking.roomId = id;
+  }
+
+  getGuests() {
+    return this.booking.guests;
+  }
+
+  setGuests(count: number) {
+    this.booking.guests = count;
   }
 
   getConfirmationCode() {
