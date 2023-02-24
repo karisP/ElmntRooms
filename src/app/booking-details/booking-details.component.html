@@ -1,70 +1,69 @@
-<div
-  [style.backgroundImage]="'url(' + room?.photo + ')'"
-  [style.width]="'100%'"
-  [style.height.px]="292"
-  [style.backgroundPosition]="'center'"
-  [style.backgroundSize]="'cover'"
-></div>
-<div class="main">
-  <div class="details">
-    <div>
-      <h2>Booking Details</h2>
+<div class="wrapper">
+  <div
+    class="room-image"
+    [style.backgroundImage]="'url(' + room?.photo + ')'"
+  ></div>
+  <div class="main">
+    <div class="details">
       <div>
-        <p>{{ room?.name }}</p>
+        <h2>Booking Details</h2>
+        <div>
+          <p>{{ room?.name }}</p>
+          <p>
+            {{ checkInDate | date : "EEE, MMM dd" }} -
+            {{ checkOutDate | date : "EEE, MMM dd" }}
+          </p>
+        </div>
+        <div>
+          <p>Guests</p>
+          <p>{{ numberOfGuests }}</p>
+        </div>
+        <div>
+          <p>
+            {{ room?.price | currency : "USD" : "symbol" : "1.0-0" }}/night x
+            {{ numberOfNights }}
+          </p>
+          <p>{{ roomCost | currency : "USD" : "symbol" : "1.0-0" }}</p>
+        </div>
+        <div>
+          <p>Taxes 6%</p>
+          <p>{{ taxes | currency : "USD" : "symbol" : "1.0-0" }}</p>
+        </div>
+        <div>
+          <p>Resort Fees $10/night</p>
+          <p>{{ fees | currency : "USD" : "symbol" : "1.0-0" }}</p>
+        </div>
+        <div>
+          <p>Total</p>
+          <p>{{ totalPrice | currency : "USD" : "symbol" : "1.0-0" }}</p>
+        </div>
         <p>
-          {{ checkInDate | date : "EEE, MMM dd" }} -
-          {{ checkOutDate | date : "EEE, MMM dd" }}
+          You may cancel your booking without charges at the latest 7 days
+          prior; otherwise, there will be a 10% fee.
         </p>
       </div>
-      <div>
-        <p>Guests</p>
-        <p>{{ numberOfGuests }}</p>
-      </div>
-      <div>
-        <p>
-          {{ room?.price | currency : "USD" : "symbol" : "1.0-0" }}/night x
-          {{ numberOfNights }}
-        </p>
-        <p>{{ roomCost | currency : "USD" : "symbol" : "1.0-0" }}</p>
-      </div>
-      <div>
-        <p>Taxes 6%</p>
-        <p>{{ taxes | currency : "USD" : "symbol" : "1.0-0" }}</p>
-      </div>
-      <div>
-        <p>Resort Fees $10/night</p>
-        <p>{{ fees | currency : "USD" : "symbol" : "1.0-0" }}</p>
-      </div>
-      <div>
-        <p>Total</p>
-        <p>{{ totalPrice | currency : "USD" : "symbol" : "1.0-0" }}</p>
-      </div>
-      <p>
-        You may cancel your booking without charges at the latest 7 days prior;
-        otherwise, there will be a 10% fee.
-      </p>
-    </div>
-    <mat-checkbox
-      [aria-label]="'agreeToCancellationPolicy'"
-      (change)="agreeToPolicy($event)"
-    >
-      I understand that if I cancel my reservation after
-      {{ lastCancellationDate | date : "MM/dd/yyyy" }} that I will be charged
-      {{ cancellationFee | currency : "USD" : "symbol" : "1.0-0" }}.
-    </mat-checkbox>
-    <a
-      [routerLink]="
-        agreedToCancellationPolicy
-          ? ['/room', room?.roomId, 'confirmation']
-          : null
-      "
-    >
-      <button
-        [disabled]="!agreedToCancellationPolicy"
-        (click)="confirmBooking()"
+      <mat-checkbox
+        [aria-label]="'agreeToCancellationPolicy'"
+        (change)="agreeToPolicy($event)"
       >
-        Confirm Reservation
-      </button>
-    </a>
+        I understand that if I cancel my reservation after
+        {{ lastCancellationDate | date : "MM/dd/yyyy" }} that I will be charged
+        {{ cancellationFee | currency : "USD" : "symbol" : "1.0-0" }}.
+      </mat-checkbox>
+      <a
+        [routerLink]="
+          agreedToCancellationPolicy
+            ? ['/room', room?.roomId, 'confirmation']
+            : null
+        "
+      >
+        <button
+          [disabled]="!agreedToCancellationPolicy"
+          (click)="confirmBooking()"
+        >
+          Confirm Reservation
+        </button>
+      </a>
+    </div>
   </div>
 </div>

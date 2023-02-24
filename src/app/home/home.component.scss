@@ -24,3 +24,20 @@
 mat-form-field {
   width: 100%;
 }
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 40px 24px;
+    min-height: calc(100vh - 80px);
+    p {
+      font-size: 32px;
+    }
+  }
+  .mat-inputs {
+    display: flex;
+
+    > mat-form-field:first-of-type {
+      margin-right: 8px;
+    }
+  }
+}

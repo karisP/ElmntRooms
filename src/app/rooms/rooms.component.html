@@ -1,14 +1,14 @@
 <div class="container">
   <div class="roomsList">
-    <a [routerLink]="['/room', room.roomId]" *ngFor="let room of rooms">
+    <a
+      [routerLink]="['/room', room.roomId]"
+      [ngClass]="e ? 'even' : 'odd'"
+      *ngFor="let room of rooms; let e = even; let o = odd"
+    >
       <div class="room">
         <div
+          class="image"
           [style.backgroundImage]="'url(' + room.photo + ')'"
-          [style.width]="'100%'"
-          [style.height.px]="200"
-          [style.backgroundPosition]="'center'"
-          [style.backgroundSize]="'cover'"
-          [style.borderRadius]="'8px 8px 0 0'"
         ></div>
         <div class="typography">
           <div>
