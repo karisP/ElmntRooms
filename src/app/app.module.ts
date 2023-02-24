@@ -7,7 +7,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DatePickerComponent } from './date-picker/date-picker.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,7 +19,6 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     RoomsComponent,
     RoomDetailsComponent,
-    DatePickerComponent,
     BookingDetailsComponent,
     ConfirmationComponent,
     HomeComponent,
