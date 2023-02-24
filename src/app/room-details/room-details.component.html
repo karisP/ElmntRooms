@@ -5,37 +5,39 @@
   [style.backgroundPosition]="'center'"
   [style.backgroundSize]="'cover'"
 ></div>
-<div class="details">
-  <div>
-    <div class="heading">
-      <h2>{{ room?.name }}</h2>
-      <p>{{ room?.price | currency : "USD" : "symbol" : "1.0-0" }}/night</p>
-    </div>
-    <p>{{ room?.description }}</p>
+<div class="main">
+  <div class="details">
     <div>
-      <p>Amenities</p>
-      <ul>
-        <li *ngFor="let a of room?.amenities">{{ a }}</li>
-      </ul>
-    </div>
-    <div class="times">
-      <p>Check-in: {{ room?.checkinTime }}:00pm</p>
-      <p>Check out: {{ room?.checkoutTime }}:00am</p>
-    </div>
-    <div class="reviews">
+      <div class="heading">
+        <h2>{{ room?.name }}</h2>
+        <p>{{ room?.price | currency : "USD" : "symbol" : "1.0-0" }}/night</p>
+      </div>
+      <p>{{ room?.description }}</p>
       <div>
-        Reviews <span>{{ room?.rating }}</span>
-        <div class="star"></div>
+        <p>Amenities</p>
+        <ul>
+          <li *ngFor="let a of room?.amenities">{{ a }}</li>
+        </ul>
       </div>
-      <div class="review" *ngFor="let review of room?.reviews">
+      <div class="times">
+        <p>Check-in: {{ room?.checkinTime }}:00pm</p>
+        <p>Check out: {{ room?.checkoutTime }}:00am</p>
+      </div>
+      <div class="reviews">
         <div>
-          {{ review.name }}<span>{{ review.rating }}/5</span>
+          Reviews <span>{{ room?.rating }}</span>
+          <div class="star"></div>
         </div>
-        <p>{{ review.message }}</p>
+        <div class="review" *ngFor="let review of room?.reviews">
+          <div>
+            {{ review.name }}<span>{{ review.rating }}/5</span>
+          </div>
+          <p>{{ review.message }}</p>
+        </div>
       </div>
     </div>
+    <a [routerLink]="['/room', room?.roomId, 'booking']">
+      <button (click)="selectRoom(room)">Book This Room</button>
+    </a>
   </div>
-  <a [routerLink]="['/room', room?.roomId, 'booking']">
-    <button (click)="selectRoom(room)">Book This Room</button>
-  </a>
 </div>

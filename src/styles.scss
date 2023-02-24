@@ -113,15 +113,19 @@ body {
   height: 100%;
 }
 
+.main {
+  padding: 16px;
+  box-sizing: border-box;
+}
+
 .details {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
   border-radius: 8px;
-  margin: 16px;
   padding: 32px 16px;
-  min-height: 400px;
+  min-height: 388px;
 
   > div {
     flex-direction: column;
