@@ -210,3 +210,15 @@ button {
     }
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .mat-mdc-text-field-wrapper {
+    border-top: 1px solid #838876;
+    border-right: 1px solid #838876;
+    border-left: 1px solid #838876;
+  }
+
+  .mdc-text-field--disabled {
+    border: 1px solid lightgrey;
+  }
+}
