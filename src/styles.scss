@@ -148,6 +148,10 @@ body {
       margin-bottom: 16px;
     }
   }
+
+  button {
+    margin-top: 16px;
+  }
 }
 
 button {
@@ -186,6 +190,23 @@ button {
   }
 
   .main {
+    display: flex;
+    flex-direction: column;
     padding: 24px;
+  }
+
+  .details {
+    flex: 1;
+
+    h2 {
+      font-size: 28px;
+    }
+
+    > div {
+      > div,
+      > p {
+        margin-bottom: 24px;
+      }
+    }
   }
 }

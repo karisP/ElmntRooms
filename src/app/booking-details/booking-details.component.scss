@@ -11,12 +11,25 @@
       font-size: 12px;
     }
   }
-
-  button {
-    margin-top: 16px;
-  }
 }
 
 mat-checkbox {
   font-size: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .details {
+    > div {
+      > div {
+        font-size: 18px;
+      }
+      > p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  mat-checkbox {
+    font-size: 14px;
+  }
 }

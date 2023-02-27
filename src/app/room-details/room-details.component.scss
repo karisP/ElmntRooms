@@ -50,7 +50,28 @@
       }
     }
   }
-  button {
-    margin-top: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .details {
+    > div {
+      p {
+        font-size: 18px;
+      }
+      .reviews {
+        font-size: 18px;
+
+        .review {
+          div,
+          p {
+            font-size: 14px;
+          }
+
+          div {
+            margin-bottom: 4px;
+          }
+        }
+      }
+    }
   }
 }

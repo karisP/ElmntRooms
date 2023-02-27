@@ -12,8 +12,19 @@
       margin-top: 32px;
     }
   }
+}
 
-  button {
-    margin-top: 16px;
+@media screen and (min-width: 768px) {
+  .details {
+    > div {
+      > div,
+      p {
+        font-size: 18px;
+      }
+
+      > p {
+        margin-top: 56px;
+      }
+    }
   }
 }
