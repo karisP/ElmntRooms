@@ -25,7 +25,7 @@ export const MOCK_ROOMS: Room[] = [
     description:
       'This room features a queen sized bed facing the sunset. Bask in the warm glow as you sink into our softest pillows.',
     price: 175,
-    photo: 'https://posterstore.com/images/zoom/v4-kg-102.jpg',
+    photo: '../assets/goldenhr.jpg',
     rating: 4.5,
     checkinTime: 3,
     checkoutTime: 11,
@@ -64,7 +64,7 @@ export const MOCK_ROOMS: Room[] = [
       'Let us help calm your senses in our most grounded room. This suite features a king sized bed with our finest linens. Reconnect with the earth while enjoying our complimentary clay masks.',
     price: 400,
     photo:
-      'http://cdn.home-designing.com/wp-content/uploads/2021/10/earthy-bedroom-decor.jpg',
+      '../assets/gaiaroom.jpg',
     rating: 4.8,
     checkinTime: 3,
     checkoutTime: 11,
@@ -103,7 +103,7 @@ export const MOCK_ROOMS: Room[] = [
       'Take a deep breath of fresh air in our plant filled oasis. This room includes a double bed and a luxurous waterfall shower. Enjoy our complimentary teas and yoga class in this zen experience.',
     price: 250,
     photo:
-      'https://cdn.decoist.com/wp-content/uploads/2021/03/decoist012-91604.jpg',
+      '../assets/zenbedroom.jpg',
     rating: 3.9,
     checkinTime: 3,
     checkoutTime: 11,
