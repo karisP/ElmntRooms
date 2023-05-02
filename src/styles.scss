@@ -212,6 +212,30 @@ button {
 }
 
 @media screen and (min-width: 1024px) {
+  .wrapper {
+    flex-direction: row;
+  }
+
+  .room-image {
+    height: auto;
+    width: 50%
+  }
+
+  .details {
+    padding: 40px 24px;
+
+    h2 {
+      font-size: 32px;
+    }
+
+    > div {
+      > div,
+      > p {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
   .mat-mdc-text-field-wrapper {
     border-top: 1px solid #838876;
     border-right: 1px solid #838876;

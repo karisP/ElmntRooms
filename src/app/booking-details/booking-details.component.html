@@ -41,15 +41,15 @@
           You may cancel your booking without charges at the latest 7 days
           prior; otherwise, there will be a 10% fee.
         </p>
+        <mat-checkbox
+          [aria-label]="'agreeToCancellationPolicy'"
+          (change)="agreeToPolicy($event)"
+        >
+          I understand that if I cancel my reservation after
+          {{ lastCancellationDate | date : "MM/dd/yyyy" }} that I will be charged
+          {{ cancellationFee | currency : "USD" : "symbol" : "1.0-0" }}.
+        </mat-checkbox>
       </div>
-      <mat-checkbox
-        [aria-label]="'agreeToCancellationPolicy'"
-        (change)="agreeToPolicy($event)"
-      >
-        I understand that if I cancel my reservation after
-        {{ lastCancellationDate | date : "MM/dd/yyyy" }} that I will be charged
-        {{ cancellationFee | currency : "USD" : "symbol" : "1.0-0" }}.
-      </mat-checkbox>
       <a
         [routerLink]="
           agreedToCancellationPolicy

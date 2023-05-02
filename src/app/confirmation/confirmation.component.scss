@@ -11,6 +11,13 @@
       text-align: center;
       margin-top: 32px;
     }
+
+    .thanks {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-top: 40px;
+    }
   }
 }
 
@@ -23,6 +30,29 @@
       }
 
       > p {
+        margin-top: 56px;
+      }
+
+      .thanks {
+        margin-top: 48px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .details {
+    > div {
+      > div,
+      p {
+        font-size: 20px;
+      }
+
+      > p {
+        margin-top: 96px;
+      }
+
+      .thanks {
         margin-top: 56px;
       }
     }
